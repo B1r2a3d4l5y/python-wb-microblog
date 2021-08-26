@@ -8,8 +8,7 @@ load_dotenv()
 
 def create_app():
     app = Flask(__name__)
-    client = MongoClient("mongodb+srv://Bradley:0810200BradleyArnold@microblog-app.ucno1.mongodb.net/test",
-                         ssl=True, ssl_cert_reqs='CERT_NONE')
+    client = MongoClient("mongodb+srv://Bradley:08102000BradleyArnold@microblog-app.ucno1.mongodb.net/test", ssl=True, ssl_cert_reqs='CERT_NONE')
     app.db = client.microblog
 
     @app.route("/", methods=["GET", "POST"])
