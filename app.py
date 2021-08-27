@@ -22,10 +22,10 @@ def create_app():
             (
                 entry["content"],
                 entry["date"],
-                datetime.datetime.strptime(entry["date","%Y-%m_%d"]).strftime("%b %d")
+                datetime.datetime.strptime(entry["date"], "%Y-%m-%d")
             )
             for entry in app.db.entries.find({})
         ]
-        return render_template("home.html", entries = entries_with_date)
+        return render_template("home.html",entries = entries_with_date)
 
     return app
