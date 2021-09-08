@@ -1,3 +1,4 @@
+import os
 from dotenv import load_dotenv
 from pymongo import MongoClient
 from flask import Flask, render_template, request
@@ -8,7 +9,7 @@ load_dotenv()
 
 def create_app():
     app = Flask(__name__)
-    client = MongoClient("mongogodb+srv://Bradleymongodb+srv://Bradley:Bradley08102000Arnold@microblog-app.ucno1.mongodb.net/Microblog-app retryWrites=true&w=majority:@microblog-app.ucno1.mongodb.net/python-web-app retryWrites=true&w=majority")
+    client = MongoClient(os.environ.get("MONGODB_URI"))
 
     @app.route("/", methods=["GET", "POST"])
     def home():
